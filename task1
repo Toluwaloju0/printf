@@ -1,0 +1,62 @@
+#include "main.h"
+#include <stdarg.h>
+#include <stdlib.h>
+#include <unistd.h>
+/**
+*_printf - tp reproduce the printf function for c, s, %
+* @format: the format to be followed
+* @...: the variadic string
+* Return: the number of characters printed
+*/
+
+int _printf(const char *format, ...)
+{
+	int i = 0, c = 0;
+	char *j, *k, g;
+	va_list a;
+
+	va_start(a, format);
+	k = va_arg(a, char *);
+	while (k[i] != '\0')
+	{
+		if (k[i] == '%')
+		{
+			i++;
+			if (k[i] == '%')
+			{
+				g = '%';
+				write(1, &g, 1);
+				i++;
+				continue;
+			}
+			if (k[i] == 'c')
+			{
+				g = va_arg(a, int);
+				write(1, &g, 1);
+				i++;
+				continue;
+			}
+			if (k[i] == 's')
+			{
+				j = va_arg(a, char *);
+				if (j == NULL)
+				{
+					i++;
+					continue;
+				}
+				while (j[c] != '\0')
+				{
+					g = j[c];
+					write(1, &g, 1);
+					c++;
+				}
+				i++;
+				continue;
+			}
+		}
+		g = k[i];
+		write(1, &g, 1);
+		i++;
+	}
+	return (i);
+}
