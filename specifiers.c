@@ -19,10 +19,27 @@ int spec_C(char c)
 */
 int spec_S(char *str)
 {
+	int a;
+
 	if (str == NULL)
 	{
 		return (0);
 	}
-	write(1, str, strlen(str));
-	return (strlen(str));
+	a = write(1, str, strlen(str));
+	return a;
+}
+/**
+* spec_D - to print an integer
+* @a: the integer to be printed
+* Return: the number of digits
+*/
+
+int spec_D(int a)
+{
+	char *b;
+	int d = 0;
+
+	b = itoa(a);
+	d = write(1, b, strlen(b));
+	return (d);
 }

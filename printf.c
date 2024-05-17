@@ -23,28 +23,31 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == '%')
 			{
-				write(1, format,1);
+				b += write(1, format, 1);
 				format++;
-				b++;
 				continue;
 			}
 			else if (*format == 'c')
 			{
-				spec_C(va_arg(a, int));
+				b += spec_C(va_arg(a, int));
 				format++;
-				b++;
 				continue;
 			}
 			else if (*format == 's')
 			{
-				spec_S(va_arg(a, char *));
+				b += spec_S(va_arg(a, char *));
+				format++;
+				continue;
+			}
+			else if (*format == 'd')
+			{
+				b += spec_D(va_arg(a, int));
 				format++;
 				continue;
 			}
 		}
-		write(1, format, 1);
+		b += write(1, format, 1);
 		format++;
-		b++;
 	}
-	return (b);
+	return b;
 }
