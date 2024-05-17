@@ -49,5 +49,5 @@ int _printf(const char *format, ...)
 		b += write(1, format, 1);
 		format++;
 	}
-	return b;
+	return (b);
 }

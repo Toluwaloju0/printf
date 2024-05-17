@@ -26,7 +26,7 @@ int spec_S(char *str)
 		return (0);
 	}
 	a = write(1, str, strlen(str));
-	return a;
+	return (a);
 }
 /**
 * spec_D - to print an integer

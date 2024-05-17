@@ -5,9 +5,9 @@
 /**
  * itoa - to convert an int to a string
  * @a: the string to be converted
- * @b: buffer to store the string
+ * Return: a buffer to storing the string
  */
-
+char *itoa(int a);
 char *itoa(int a)
 {
 	char j[512], *l;
@@ -28,7 +28,7 @@ char *itoa(int a)
 		a = a / 10;
 		d++;
 	}
-	if (j[0] = '-')
+	if (j[0] == '-')
 	{
 		d++;
 	}
