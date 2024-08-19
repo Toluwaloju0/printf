@@ -22,7 +22,7 @@ int spec_S(char *str)
 	int a;
 	char *for_null = "(null)";
 
-	if (str == NULL || strlen(str) == 0)
+	if (str == NULL)
 	{
 		a = write(1, for_null, strlen(for_null));
 		return (a);
