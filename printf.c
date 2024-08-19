@@ -46,7 +46,7 @@ int _printf(const char *format, ...)
 				format++;
 				continue;
 			}
-			else if (*format == 'd')
+			else if (*format == 'd' || *format == 'i')
 			{
 				b += spec_D(va_arg(a, int));
 				format++;
