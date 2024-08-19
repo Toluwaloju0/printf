@@ -1,6 +1,8 @@
 #include "main.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
+#include <limits.h>
 
 /**
  * itoa - to convert an int to a string
@@ -16,11 +18,16 @@ char *itoa(int a)
 	if (a < 0)
 	{
 		j[0] = '-';
-		a = a * -1;
+		a *= -1;
+		printf("---------------------\n%d\n-----------------\n", a);
+	}
+	else if (a >  0)
+	{
+		j[0] = '+';
 	}
 	else
 	{
-		j[0] = '+';
+		return ("0");
 	}
 	while (a > 0)
 	{
@@ -33,6 +40,10 @@ char *itoa(int a)
 		d++;
 	}
 	l = malloc(sizeof(char) * d);
+	if (l == NULL)
+	{
+		return (NULL);
+	}
 	n = 0;
 	if (j[0] == '-')
 	{
