@@ -34,7 +34,10 @@ char *itoa(int a)
 	}
 	else
 	{
-		return ("0");
+		l = malloc(sizeof(char) * 2);
+		l[0] = '0';
+		l[1] = '\0';
+		return (l);
 	}
 	while (for_convert > 0)
 	{
