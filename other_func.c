@@ -19,7 +19,7 @@ char *itoa(int a)
 		j[0] = '-';
 		if (a == INT_MIN)
 		{
-			a = INT_MAX;
+			a = (unsigned int)INT_MAX + 1;
 		}
 		else
 		{
