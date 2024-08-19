@@ -21,7 +21,7 @@ int spec_S(char *str)
 {
 	int a;
 
-	if (str == NULL)
+	if (str == NULL || strlen(str) == 0)
 	{
 		return (0);
 	}

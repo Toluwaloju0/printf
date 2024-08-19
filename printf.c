@@ -3,12 +3,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+
 /**
-*_printf - to reproduce the printf function for c, s, %
-* @format: the format to be followed
-* @...: the variadic string
-* Return: the number of characters printed
-*/
+ *_printf - to reproduce the printf function for c, s, %
+ * @format: the format to be followed
+ * @...: the variadic string
+ * Return: the number of characters printed
+ */
 
 int _printf(const char *format, ...)
 {
