@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 	va_list a;
 	char none = '%';
 
-	if (format == NULL || format == "%")
+	if (format == NULL || *format == '%')
 	{
 		exit(0);
 	}
