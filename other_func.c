@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 #include <limits.h>
 
 /**
@@ -18,7 +17,14 @@ char *itoa(int a)
 	if (a < 0)
 	{
 		j[0] = '-';
-		a *= -1;
+		if (a == INT_MIN)
+		{
+			a = INT_MAX;
+		}
+		else
+		{
+			a *= -1;
+		}
 	}
 	else if (a >  0)
 	{

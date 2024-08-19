@@ -11,8 +11,8 @@ int main(void)
 {
 	int len, len2;
 
-	len = _printf("%i", -31);
-	len2 = printf("%i", -31);
+	len = _printf("%i", INT_MIN);
+	len2 = printf("%i", INT_MIN);
 	fflush(stdout);
 	if (len != len2)
 	{
