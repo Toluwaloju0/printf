@@ -13,31 +13,33 @@ char *itoa(int a)
 {
 	char j[512], *l;
 	int d = 1, n;
+	unsigned int for_convert;
 
 	if (a < 0)
 	{
 		j[0] = '-';
 		if (a == INT_MIN)
 		{
-			a = (unsigned int)INT_MAX + 1;
+			for_convert = (unsigned int)INT_MAX + 1;
 		}
 		else
 		{
-			a *= -1;
+			for_convert = (unsigned int)a * -1;
 		}
 	}
 	else if (a >  0)
 	{
 		j[0] = '+';
+		for_convert = (unsigned int)a;
 	}
 	else
 	{
 		return ("0");
 	}
-	while (a > 0)
+	while (for_convert > 0)
 	{
-		j[d] = (a % 10) + '0';
-		a = a / 10;
+		j[d] = (for_convert % 10) + '0';
+		for_convert = for_convert / 10;
 		d++;
 	}
 	if (j[0] == '-')
