@@ -15,7 +15,12 @@ int _printf(const char *format, ...)
 {
 	int b = 0;
 	va_list a;
+	char none = '%';
 
+	if (format == NULL)
+	{
+		return (0);
+	}
 	va_start(a, format);
 	while (*format != '\0')
 	{
@@ -45,6 +50,10 @@ int _printf(const char *format, ...)
 				b += spec_D(va_arg(a, int));
 				format++;
 				continue;
+			}
+			else
+			{
+				b += write(1, &none, 1);
 			}
 		}
 		b += write(1, format, 1);
