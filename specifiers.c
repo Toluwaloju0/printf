@@ -42,6 +42,11 @@ int spec_D(int a)
 	int d = 0;
 
 	b = itoa(a);
+	if (b == NULL)
+	{
+		exit(100);
+	}
 	d = write(1, b, strlen(b));
+	free(b);
 	return (d);
 }
