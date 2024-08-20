@@ -9,14 +9,14 @@
  */
 int main(void)
 {
-	int len, len2;
+	int len, len2 = 0;
 
-	len = _printf("%i", 0);
-	len2 = printf("%i", 0);
+	len = _printf("%b\n", 100);
+/*	len2 = printf("%b\n", 100);*/
 	fflush(stdout);
 	if (len != len2)
 	{
-		printf("Lengths differ.\n");
+		printf("Lengths differ.\n%d", len);
 		fflush(stdout);
 		return (1);
 	}

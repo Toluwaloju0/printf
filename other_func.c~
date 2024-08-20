@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-#include <unistd.h>
 
 /**
  * itoa - to convert an int to a string
@@ -87,8 +86,8 @@ char *to_binary(unsigned int num);
 char *to_binary(unsigned int num)
 
 {
-	char bin[512], *ret;
-	unsigned int a = 0, b;
+	char bin[1024], *ret;
+	unsigned int a = 0, b = 0;
 
 	if (num == 0)
 	{
@@ -102,21 +101,23 @@ char *to_binary(unsigned int num)
 	{
 		bin[a] = (num % 2) + '0';
 		a++;
+
 		num = num / 2;
 	}
-	
+
 	ret = malloc(sizeof(char) * a);
 	if (ret == NULL)
 	{
-		return(NULL);
+		return (NULL);
 	}
-
-	b = 0;
 	while (a > 0)
 	{
-		a--;
 		ret[b] = bin[a];
 		b++;
+		a--;
 	}
+	ret[b] = bin[a];
+	ret[b + 1] = '\0';
+
 	return (ret);
 }

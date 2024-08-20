@@ -50,3 +50,24 @@ int spec_D(int a)
 	free(b);
 	return (d);
 }
+
+/**
+ * spec_B - tom print the binary of a number
+ * @a: the number to be printed
+ * Return: the number of characters printed
+ */
+
+int spec_B(unsigned int a)
+{
+	char *b;
+	int d = 0;
+
+	b = to_binary(a);
+	if (b == NULL)
+	{
+		exit(100);
+	}
+	d = write(1, b, strlen(b));
+	free(b);
+	return (d);
+}

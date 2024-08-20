@@ -52,6 +52,12 @@ int _printf(const char *format, ...)
 				format++;
 				continue;
 			}
+			else if (*format == 'b')
+			{
+				b += spec_B(va_arg(a, unsigned int));
+				format++;
+				continue;
+			}
 			else
 			{
 				b += write(1, &none, 1);
