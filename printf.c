@@ -58,6 +58,30 @@ int _printf(const char *format, ...)
 				format++;
 				continue;
 			}
+			else if (*format == 'u')
+			{
+				b += spec_U(va_arg(a, unsigned int));
+				format++;
+				continue;
+			}
+			else if (*format == 'o')
+			{
+				b += spec_O(va_arg(a, unsigned int));
+				format++;
+				continue;
+			}
+			else if (*format == 'x')
+			{
+				b += spec_x(va_arg(a, unsigned int));
+				format++;
+				continue;
+			}
+			else if (*format == 'X')
+			{
+				b += spec_X(va_arg(a, unsigned int));
+				format++;
+				continue;
+			}
 			else
 			{
 				b += write(1, &none, 1);

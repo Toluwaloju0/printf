@@ -30,6 +30,8 @@ int spec_S(char *str)
 	a = write(1, str, strlen(str));
 	return (a);
 }
+
+
 /**
 * spec_D - to print an integer
 * @a: the integer to be printed
@@ -51,6 +53,7 @@ int spec_D(int a)
 	return (d);
 }
 
+
 /**
  * spec_B - tom print the binary of a number
  * @a: the number to be printed
@@ -63,6 +66,91 @@ int spec_B(unsigned int a)
 	int d = 0;
 
 	b = to_binary(a);
+	if (b == NULL)
+	{
+		exit(100);
+	}
+	d = write(1, b, strlen(b));
+	free(b);
+	return (d);
+}
+
+
+/**
+* spec_U - to print an integer
+* @a: the integer to be printed
+* Return: the number of digits
+*/
+
+int spec_U(unsigned int a)
+{
+	char *b;
+	int d = 0;
+
+	b = itoa_fr_unsigned(a);
+	if (b == NULL)
+	{
+		exit(100);
+	}
+	d = write(1, b, strlen(b));
+	free(b);
+	return (d);
+}
+
+/**
+* spec_O - to print an integer
+* @a: the integer to be printed
+* Return: the number of digits
+*/
+
+int spec_O(unsigned int a)
+{
+	char *b;
+	int d = 0;
+
+	b = itoa_fr_octal(a);
+	if (b == NULL)
+	{
+		exit(100);
+	}
+	d = write(1, b, strlen(b));
+	free(b);
+	return (d);
+}
+
+/**
+* spec_x - to print an integer
+* @a: the integer to be printed
+* Return: the number of digits
+*/
+
+int spec_x(unsigned int a)
+{
+	char *b;
+	int d = 0;
+
+	b = itoa_fr_hexasmall(a);
+	if (b == NULL)
+	{
+		exit(100);
+	}
+	d = write(1, b, strlen(b));
+	free(b);
+	return (d);
+}
+
+/**
+* spec_X - to print an integer
+* @a: the integer to be printed
+* Return: the number of digits
+*/
+
+int spec_X(unsigned int a)
+{
+	char *b;
+	int d = 0;
+
+	b = itoa_fr_hexabig(a);
 	if (b == NULL)
 	{
 		exit(100);
