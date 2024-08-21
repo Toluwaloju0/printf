@@ -12,7 +12,7 @@
 int spec_P(void *a)
 
 {
-	char *to_print, fr_null = "(nil)";
+	char *to_print, *fr_null = "(nil)";
 	int d;
 
 	to_print = to_address(a);
