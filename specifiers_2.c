@@ -27,20 +27,25 @@ int spec_U(unsigned int a)
 /**
 * spec_O - to print an integer
 * @a: the integer to be printed
+* @sign: the sign before the specifier
 * Return: the number of digits
 */
 
-int spec_O(unsigned int a)
+int spec_O(unsigned int a, char sign)
 {
-	char *b;
+	char *b, zero = '0';
 	int d = 0;
 
+	if (sign == '#')
+	{
+		d += write(1, &zero, 1);
+	}
 	b = itoa_fr_octal(a);
 	if (b == NULL)
 	{
 		exit(100);
 	}
-	d = write(1, b, strlen(b));
+	d += write(1, b, strlen(b));
 	free(b);
 	return (d);
 }
@@ -48,12 +53,13 @@ int spec_O(unsigned int a)
 /**
 * spec_x - to print an integer
 * @a: the integer to be printed
+* @sign: the sign before the specifier
 * Return: the number of digits
 */
 
-int spec_x(unsigned int a)
+int spec_x(unsigned int a, char sign)
 {
-	char *b;
+	char *b, *zero = "0x";
 	int d = 0;
 
 	b = itoa_fr_hexasmall(a);
@@ -61,7 +67,11 @@ int spec_x(unsigned int a)
 	{
 		exit(100);
 	}
-	d = write(1, b, strlen(b));
+	if (sign == '#')
+	{
+		d += write(1, zero, 2);
+	}
+	d += write(1, b, strlen(b));
 	free(b);
 	return (d);
 }
@@ -69,12 +79,13 @@ int spec_x(unsigned int a)
 /**
 * spec_X - to print an integer
 * @a: the integer to be printed
+* @sign: the sign before the specifier
 * Return: the number of digits
 */
 
-int spec_X(unsigned int a)
+int spec_X(unsigned int a, char sign)
 {
-	char *b;
+	char *b, *zero = "0X";
 	int d = 0;
 
 	b = itoa_fr_hexabig(a);
@@ -82,7 +93,11 @@ int spec_X(unsigned int a)
 	{
 		exit(100);
 	}
-	d = write(1, b, strlen(b));
+	if (sign == '#')
+	{
+		d += write(1, zero, 2);
+	}
+	d += write(1, b, strlen(b));
 	free(b);
 	return (d);
 }

@@ -10,10 +10,9 @@
 int main(void)
 {
 	int len, len2 = 0;
-	char *aq = "i am a a boy";
 
-	len = _printf("%p\n", aq);
-	len2 = printf("%p\n", aq);
+	len = _printf("%#x\n", -123);
+	len2 = printf("%#x\n", -123);
 	fflush(stdout);
 	if (len != len2)
 	{

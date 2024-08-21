@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdio.h>
+
 /**
 * spec_C - to print the c character
 * @c: the character to be printed
@@ -35,20 +37,28 @@ int spec_S(char *str)
 /**
 * spec_D - to print an integer
 * @a: the integer to be printed
+* @sign: the character before the specifier
 * Return: the number of digits
 */
 
-int spec_D(int a)
+int spec_D(int a, char sign)
 {
-	char *b;
+	char *b, pos = '+', space = ' ';
 	int d = 0;
 
+	if (sign == pos || sign == space)
+	{
+		if (a >= 0)
+		{
+			d += write(1, &sign, 1);
+		}
+	}
 	b = itoa(a);
 	if (b == NULL)
 	{
 		exit(100);
 	}
-	d = write(1, b, strlen(b));
+	d += write(1, b, strlen(b));
 	free(b);
 	return (d);
 }
