@@ -36,6 +36,11 @@ int spec_O(unsigned int a, char sign)
 	char *b, zero = '0';
 	int d = 0;
 
+	if (a == 0)
+	{
+		d = write(1, &zero, 1);
+		return (d);
+	}
 	if (sign == '#')
 	{
 		d += write(1, &zero, 1);
@@ -59,9 +64,14 @@ int spec_O(unsigned int a, char sign)
 
 int spec_x(unsigned int a, char sign)
 {
-	char *b, *zero = "0x";
+	char *b, *zero = "0x", zer = '0';
 	int d = 0;
 
+	if (a == 0)
+	{
+		d = write(1, &zer, 1);
+		return (d);
+	}
 	b = itoa_fr_hexasmall(a);
 	if (b == NULL)
 	{
@@ -85,9 +95,14 @@ int spec_x(unsigned int a, char sign)
 
 int spec_X(unsigned int a, char sign)
 {
-	char *b, *zero = "0X";
+	char *b, *zero = "0X", zer = '0';
 	int d = 0;
 
+	if (a == 0)
+	{
+		d = write(1, &zer, 1);
+		return (d);
+	}
 	b = itoa_fr_hexabig(a);
 	if (b == NULL)
 	{
