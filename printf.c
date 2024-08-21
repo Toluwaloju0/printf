@@ -88,6 +88,12 @@ int _printf(const char *format, ...)
 				format++;
 				continue;
 			}
+			else if (*format == 'p')
+			{
+				b += spec_P(va_arg(a, void *));
+				format++;
+				continue;
+			}
 			else
 			{
 				b += write(1, &none, 1);

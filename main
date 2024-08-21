@@ -10,9 +10,10 @@
 int main(void)
 {
 	int len, len2 = 0;
+	char *aq = "i am a a boy";
 
-	len = _printf("%S\n", "I am A str\nto be printed using ascii");
-/*	len2 = printf("%X\n", 123);*/
+	len = _printf("%p\n", aq);
+	len2 = printf("%p\n", aq);
 	fflush(stdout);
 	if (len != len2)
 	{
