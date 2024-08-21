@@ -82,6 +82,12 @@ int _printf(const char *format, ...)
 				format++;
 				continue;
 			}
+			else if (*format == 'S')
+			{
+				b += spec_SS(va_arg(a, char *));
+				format++;
+				continue;
+			}
 			else
 			{
 				b += write(1, &none, 1);

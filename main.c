@@ -11,8 +11,8 @@ int main(void)
 {
 	int len, len2 = 0;
 
-	len = _printf("%X\n", 123);
-	len2 = printf("%X\n", 123);
+	len = _printf("%S\n", "I am A str\nto be printed using ascii");
+/*	len2 = printf("%X\n", 123);*/
 	fflush(stdout);
 	if (len != len2)
 	{

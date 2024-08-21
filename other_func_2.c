@@ -4,12 +4,12 @@
 #include <limits.h>
 
 /**
- * itoa_fr_unsigned - to convert an int to a string
+ * itoa_fr_unsigned_int - to convert an int to a string
  * @a: the string to be converted
  * Return: a buffer to storing the string
  */
 
-char *itoa_fr_unsigned(unsigned int a)
+char *itoa_fr_unsigned_int(unsigned int a)
 {
 	char j[512], *l;
 	int d = 0, n;
