@@ -113,6 +113,14 @@ int spec_SS(char *str)
 
 			for_null = itoa_fr_hexabig(*str);
 
+			if (*str >= 127)
+			{
+				con = '1';
+			}
+			else
+			{
+				con = '0';
+			}
 			a += write(1, &con, 1);
 			a += write(1, for_null, strlen(for_null));
 

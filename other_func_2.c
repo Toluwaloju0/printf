@@ -21,7 +21,6 @@ char *itoa_fr_unsigned_int(unsigned int a)
 		l[1] = '\0';
 		return (l);
 	}
-	l = malloc(sizeof(char) * 2);
 	while (a > 0)
 	{
 		j[d] = (a % 10) + '0';
@@ -69,7 +68,6 @@ char *itoa_fr_octal(unsigned int a)
 		a = a / 8;
 		d++;
 	}
-	l = malloc(sizeof(char) * d);
 	if (l == NULL)
 	{
 		return (NULL);
@@ -108,7 +106,6 @@ char *itoa_fr_hexasmall(unsigned int a)
 		l[1] = '\0';
 		return (l);
 	}
-	l = malloc(sizeof(char) * 2);
 	while (a > 0)
 	{
 		rem = a % 16;
@@ -162,7 +159,6 @@ char *itoa_fr_hexabig(unsigned int a)
 		l[1] = '\0';
 		return (l);
 	}
-	l = malloc(sizeof(char) * 2);
 	while (a > 0)
 	{
 		rem = a % 16;
