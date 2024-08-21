@@ -40,7 +40,7 @@ char *itoa_fr_address(unsigned long a)
 {
 	char j[512], *l;
 	unsigned int rem;
-	char rem_list[6] = {'A', 'B', 'C', 'D', 'E', 'F'};
+	char rem_list[6] = {'a', 'b', 'c', 'd', 'e', 'f'};
 	int d = 0, n;
 
 	if (a == 0)

@@ -12,13 +12,14 @@
 int spec_P(void *a)
 
 {
-	char *to_print;
+	char *to_print, fr_null = "(nil)";
 	int d;
 
 	to_print = to_address(a);
 	if (to_print == NULL)
 	{
-		return (0);
+		d = write(1, fr_null, strlen(fr_null));
+		return (d);
 	}
 
 	d = write(1, to_print, strlen(to_print));
