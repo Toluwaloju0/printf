@@ -31,10 +31,19 @@ int _printf(const char *format, ...)
 			sign = '.';
 			if (format[ar] == ' ' || format[ar] == '+' || format[ar] == '#')
 			{
-				new = format[ar + 1];
-				if (new == 'd' || new == 'i')
+				sign = '+';
+				if (format[ar + 1] == '+' || format[ar + 1] == ' ')
+				{
+					ar++;
+					new = format[ar + 1];
+				}
+				else
 				{
 					sign = format[ar];
+					new = format[ar + 1];
+				}
+				if (new == 'd' || new == 'i')
+				{
 					ar++;
 				}
 				else if (new == 'x' || new == 'X' || new == 'o')
