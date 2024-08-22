@@ -118,6 +118,12 @@ int _printf(const char *format, ...)
 				ar++;
 				continue;
 			}
+			else if (format[ar] == 'r')
+			{
+				b += spec_R(va_arg(a, char *));
+				ar++;
+				continue;
+			}
 			else
 			{
 				b += write(1, &none, 1);

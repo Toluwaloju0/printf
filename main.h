@@ -10,7 +10,7 @@ char *itoa_fr_unsigned_int(unsigned int a);
 char *itoa_fr_octal(unsigned int a);
 char *itoa_fr_hexasmall(unsigned int a);
 char *itoa_fr_hexabig(unsigned int a);
-char *itoa_fr_address(unsigned long a);
+char *itoa_fr_address(unsigned long a);\
 char *to_address(void *var);
 int spec_B(unsigned int a);
 char *to_binary(unsigned int num);
@@ -20,5 +20,6 @@ int spec_x(unsigned int a, char sign);
 int spec_X(unsigned int, char sign);
 int spec_SS(char *a);
 int spec_P(void *a);
+int spec_R(char *a);
 
 #endif
